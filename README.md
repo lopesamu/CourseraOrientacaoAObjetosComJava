@@ -5,6 +5,7 @@
 
 #### Project Title: "Classe para Cálculo do IMC"
 
+#### Description:
  "Implemente no Eclipse uma classe chamada Paciente que possui um construtor que recebe o seu peso em quilos e sua altura em metros, ambos utilizando o tipo double. Crie um método chamado calcularIMC() que calcula o índice de Massa Corporal de acordo com a fórmula **IMC = peso (quilos) / (altura * altura (metros))**. Crie também um método chamado diagnostico() que utiliza o método calcularIMC() e retorna uma String de acordo com as seguintes faixas de valor:
 
 * Baixo peso muito grave = IMC abaixo de 16 kg/m²
