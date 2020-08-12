@@ -1,24 +1,23 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class CarrinhoDeCompras {
 	
-	//attributes - USAR LIST AO INVES DE HASHMAP - https://www.caelum.com.br/apostila-java-orientacao-objetos/collections-framework#listas-javautillist
-	Map<Pizza, Integer> pizzaComprada = new HashMap<Pizza, Integer>();//lista de pizzas e seus respectivos valores
+	//Lista de pizzas do carrinho de compras
+	List<Pizza> pizzaComprada = new ArrayList<Pizza>();
 	
 	//methods
 	void adicionaPizza(Pizza pizza) {
-		if(pizza.ingrediente.size() < 0)
-			this.pizzaComprada.put(pizza, pizza.getPreco());
+		if(pizza.ingrediente.size() > 0)
+			this.pizzaComprada.add(pizza);
 		else
 			System.out.println("Pizza não adicionada porque não possui ingredientes!!!");
 	}
 	
 	int valorTotalCarrinho() {
 		int valorTotal = 0;
-		for(Pizza pizza: pizzaComprada.keySet()) {
-			valorTotal += pizzaComprada.get(pizza);
-		}
+	    for (int i = 0; i < this.pizzaComprada.size(); i++) {
+	    	valorTotal += this.pizzaComprada.get(i).getPreco();
+	    }
 		
 		return valorTotal;
 	}

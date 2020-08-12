@@ -1,32 +1,31 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Principal {
 
 	public static void main(String[] args) {
 		
-		Map<String, Integer> ingrediente = new HashMap<String, Integer>();
+		//Criar três pizzar com sabores diferentes
+		Pizza p[] = new Pizza[3];
+		for(int i = 0; i < 3; i++)
+			p[i] = new Pizza();
+				
+		p[0].adicionaIngrediente("calabresa");
+		p[0].adicionaIngrediente("cebola");	
+		p[1].adicionaIngrediente("frango");
+		p[1].adicionaIngrediente("catupiry");
+		p[1].adicionaIngrediente("azeitona");
+		p[2].adicionaIngrediente("mussarela");
+		p[2].adicionaIngrediente("presunto");
 		
-		//inserir item
-		ingrediente.put("calabresa",new Integer(10));
-		ingrediente.put("queijo",new Integer(40));
-		ingrediente.put("tomate",new Integer(60));
+		//Adicionar as pizzas no carrinho de compras
+		CarrinhoDeCompras c = new CarrinhoDeCompras();
+		c.adicionaPizza(p[0]);
+		c.adicionaPizza(p[1]);
+		c.adicionaPizza(p[2]);
 		
+		//Imprimir valor total do carrinho de compras
+		System.out.println("Valor total: R$"+c.valorTotalCarrinho());
 		
-		//calcular tamanho do map
-		System.out.println("Quantidade de ingredientes: "+ingrediente.size());
-		
-		//imprimir itens
-		int total = 0;
-		for(String item : ingrediente.keySet()) {
-			int valor = ingrediente.get(item);
-			System.out.println("Ingrediente: "+item+" --- Valor: "+valor);
-			total += valor;
-		}
-		
-		//valor total
-		System.out.println("\nValor total: "+total);
-			
+		//Imprimir a quantidade utilizada de cada ingrediente
+		System.out.println("\nQuantidade utilizada de cada ingrediente:\n"+Pizza.ingredienteGasto);
 	}
 
 }

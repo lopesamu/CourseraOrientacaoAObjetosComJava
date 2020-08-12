@@ -1,16 +1,15 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Pizza {
 	
 	//attributes
-	static int qtdeIngredienteGasto; // eu entendi que esta variável deve armazenar a quantidade de ingredientes gastos por todos os objetos do tipo Pizza
-	Map<String, Integer> ingrediente = new HashMap<String, Integer>();
+	static Map<String, Integer> ingredienteGasto = new HashMap<String, Integer>();
+	List<String> ingrediente = new ArrayList<String>();
 	
 	//methods
 	void adicionaIngrediente(String ingrediente) {
-		this.ingrediente.put(ingrediente,new Integer(0));
-		contabilizaIngrediente();
+		this.ingrediente.add(ingrediente);
+		contabilizaIngrediente(ingrediente);
 	}
 	
 	int getPreco() {
@@ -22,7 +21,11 @@ public class Pizza {
 			return 23;
 	}
 	
-	static void contabilizaIngrediente() {
-		qtdeIngredienteGasto++;
+	static void contabilizaIngrediente(String ingrediente) {
+		//se o ingrediente ja tiver sido adicionado, somar ao seu valor. Caso contrario, criar chave com valor 1
+		if(ingredienteGasto.containsKey(ingrediente))
+			ingredienteGasto.put(ingrediente, ingredienteGasto.get(ingrediente) + 1);
+		else
+			ingredienteGasto.put(ingrediente, 1);
 	}
 }
