@@ -36,3 +36,9 @@ Crie uma classe Principal com o método main() que faz o seguinte:
 *Adiciona essas Pizzas em um CarrinhoDeCompra
 *Imprime o total do CarrinhoDeCompra
 *Imprime a quantidade utilizada de cada ingrediente".
+
+## Week 3
+
+#### Project Title: "tbd"
+
+#### Description: tbd
