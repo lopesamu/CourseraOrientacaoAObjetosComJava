@@ -1,3 +1,5 @@
+package Classes;
+
 public class Produto {
 	protected String nome;
 	protected int codigo;
