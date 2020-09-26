@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String[] args) {
+		
+		//define a dificuldade do jogo
 		System.out.println("---BEM-VINDO AO NOSSO JOGO!!!---");
 		
 		int opcao = 3;
@@ -15,9 +17,8 @@ public class Principal {
 			opcao = ler.nextInt();
 		}
 		
-		//se 1, retornar MecanicaDoJogo1. Se 2, retornar MecanicaDoJogo2
+		//se opcao = 1, retornar MecanicaDoJogo1. Se opcao = 2, retornar MecanicaDoJogo2
 		MecanicaDoJogo m = FabricaMecanicaDoJogo.mecanicaUtilizada(opcao);
-		//MecanicaDoJogo m = new MecanicaDoJogo1(3);
 		
 		//mostra a palavra embaralhada
 		m.mostrarPalavraEmabaralhada();
@@ -25,25 +26,21 @@ public class Principal {
 		String resposta;
 		//enquanto não acabar as vidas
 		while(m.acabouJogo() != true) {
+			//lê resposta do usuário
 			System.out.println("Qual é a palavra certa?");
 			Scanner aux = new Scanner(System.in);
 			resposta = aux.nextLine();
 			
 			//verificar se a resposta esta correta
 			if(m.acertouPalavra(resposta)) {
-				System.out.println("\nVOCÊ ACERTOU, PARABÉNS!!!");
-				break;
+				//zerar as vidas para sair do loop
+				m.zeraQtdeVidas();
+				m.avisoAcerto();
 			}
 			else {
-				//caso nao esteja, retirar uma vida
-				m.decrementarVida();
-				if(m.getQtdeVida() > 0)
-					System.out.println("Tente novamente!!! Você ainda tem " + m.getQtdeVida() + " vida(s)");
-				else
-					System.out.println("\nVocê não conseguiu acertar a palavra :(");
+				m.podeTentarNovamente();
 			}
 		}
-		
-		System.out.println("\nFim de jogo!!!");
+		m.avisoFimDeJogo();
 	}
 }

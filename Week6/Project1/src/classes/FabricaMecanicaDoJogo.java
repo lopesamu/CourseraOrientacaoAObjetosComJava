@@ -6,6 +6,6 @@ public class FabricaMecanicaDoJogo {
 		if(opcao == 1)
 			return new MecanicaDoJogo1(3);//modo facil
 		else
-			return new MecanicaDoJogo2(0);//modo dificil
+			return new MecanicaDoJogo2(1);//modo dificil
 	}
 }

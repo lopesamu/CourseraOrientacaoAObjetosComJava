@@ -47,5 +47,37 @@ public class MecanicaDoJogo1 implements MecanicaDoJogo {
 		return this.qtdeVidas;
 	}
 	
+	@Override
+	public void zeraQtdeVidas() {
+		this.qtdeVidas = 0;
+	}
+
+	@Override
+	public void podeTentarNovamente() {
+		//decrementar uma vida, pois o usuário errou
+		this.decrementarVida();
+		this.avisoTenteNovamente();
+	}
+
+	@Override
+	public void avisoAcerto() {
+		System.out.println("\nVOCÊ ACERTOU, PARABÉNS!!!");
+	}
+
+	@Override
+	public void avisoTenteNovamente() {
+		if(this.acabouJogo() == false)
+			System.out.println("Tente novamente!!! Você ainda tem " + this.getQtdeVida() + " vida(s)");
+		else
+			System.out.println("\nVocê não conseguiu acertar a palavra :(");
+		
+	}
+
+	@Override
+	public void avisoFimDeJogo() {
+		System.out.println("\nFim de jogo!!!");
+		
+	}
+	
 	
 }
