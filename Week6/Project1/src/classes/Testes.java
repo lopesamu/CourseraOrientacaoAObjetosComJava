@@ -8,10 +8,7 @@ class Testes {
 
 	@Test
 	void test() {
-		BancoDePalavras b = new BancoDePalavras();
 		
-		Embaralhador e = new Embaralhador2();
-		System.out.println(e.embaralhaPalavra(b.palavraAleatoria()));
 	}
 
 }
